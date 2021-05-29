@@ -1,0 +1,324 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    05/28/2021  13:34:47  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\source.obj TO .\Objects\hex_4_a PRINT (.\Listings\hex_4_a.m51) RAMSIZE (256) CODE 
+>> (0X0000-0XFFFF)
+
+
+MEMORY MODEL: SMALL WITH FLOATING POINT ARITHMETIC
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\source.obj (SOURCE)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPMUL)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPCMP)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FCAST)
+  C:\KEIL_V5\C51\LIB\C51FPS.LIB (?C?FPGETOPN)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LNEG)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?STRCMP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (STRLEN)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\hex_4_a (SOURCE)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     001EH     UNIT         ?DT?SOURCE
+            DATA    0026H     0010H     UNIT         _DATA_GROUP_
+            IDATA   0036H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     03C9H     UNIT         ?C?LIB_CODE
+            CODE    0BC9H     008CH     UNIT         ?C_C51STARTUP
+            CODE    0C55H     0081H     UNIT         ?CO?SOURCE
+            CODE    0CD6H     0075H     INBLOCK      ?PR?MAIN?SOURCE
+            CODE    0D4BH     0069H     INBLOCK      ?PR?_DISPLAY?SOURCE
+            CODE    0DB4H     0053H     INBLOCK      ?PR?_LOADING_DISPLAY?SOURCE
+            CODE    0E07H     0053H     INBLOCK      ?PR?_CHECK?SOURCE
+            CODE    0E5AH     0050H     INBLOCK      ?PR?_DELAY?SOURCE
+            CODE    0EAAH     001BH     INBLOCK      ?PR?INIT_LCD?SOURCE
+            CODE    0EC5H     001BH     UNIT         ?C_INITSEG
+            CODE    0EE0H     0015H     UNIT         ?PR?_STRLEN?STRLEN
+            CODE    0EF5H     0014H     INBLOCK      ?PR?MOTORDELAY?SOURCE
+            CODE    0F09H     0014H     INBLOCK      ?PR?_LCD_DATA?SOURCE
+            CODE    0F1DH     0014H     INBLOCK      ?PR?_LCD_CMD?SOURCE
+            CODE    0F31H     000CH     INBLOCK      ?PR?SERIAL_INIT?SOURCE
+            CODE    0F3DH     000BH     INBLOCK      ?PR?RXDATA?SOURCE
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\hex_4_a (SOURCE)
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/28/2021  13:34:47  PAGE 2
+
+
+
+SEGMENT                               DATA_GROUP 
+  +--> CALLED SEGMENT               START    LENGTH
+---------------------------------------------------
+?C_C51STARTUP                       -----    -----
+  +--> ?PR?MAIN?SOURCE
+  +--> ?C_INITSEG
+
+?PR?MAIN?SOURCE                     -----    -----
+  +--> ?PR?INIT_LCD?SOURCE
+  +--> ?PR?SERIAL_INIT?SOURCE
+  +--> ?CO?SOURCE
+  +--> ?PR?_LOADING_DISPLAY?SOURCE
+  +--> ?PR?_DELAY?SOURCE
+  +--> ?PR?_DISPLAY?SOURCE
+  +--> ?PR?RXDATA?SOURCE
+  +--> ?PR?_CHECK?SOURCE
+
+?PR?INIT_LCD?SOURCE                 -----    -----
+  +--> ?PR?_LCD_CMD?SOURCE
+
+?PR?_LCD_CMD?SOURCE                 -----    -----
+  +--> ?PR?_DELAY?SOURCE
+
+?PR?_DELAY?SOURCE                   0032H    0004H
+
+?PR?_LOADING_DISPLAY?SOURCE         -----    -----
+  +--> ?PR?_DISPLAY?SOURCE
+  +--> ?CO?SOURCE
+
+?PR?_DISPLAY?SOURCE                 002AH    0008H
+  +--> ?PR?_STRLEN?STRLEN
+  +--> ?PR?_LCD_CMD?SOURCE
+  +--> ?PR?_DELAY?SOURCE
+  +--> ?PR?_LCD_DATA?SOURCE
+
+?PR?_LCD_DATA?SOURCE                -----    -----
+  +--> ?PR?_DELAY?SOURCE
+
+?PR?_CHECK?SOURCE                   0026H    0004H
+  +--> ?CO?SOURCE
+  +--> ?PR?_LOADING_DISPLAY?SOURCE
+
+?C_INITSEG                          -----    -----
+  +--> ?CO?SOURCE
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\hex_4_a (SOURCE)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        SOURCE
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0E07H         PUBLIC        _check
+  D:0090H         PUBLIC        P1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/28/2021  13:34:47  PAGE 3
+
+
+  D:00A0H         PUBLIC        P2
+  C:0F3DH         PUBLIC        rxdata
+  C:0E5AH         PUBLIC        _delay
+  C:0F31H         PUBLIC        serial_init
+  B:0098H.0       PUBLIC        RI
+  C:0CD6H         PUBLIC        main
+  D:0008H         PUBLIC        rfid
+  C:0EF5H         PUBLIC        motorDelay
+  D:0014H         PUBLIC        info
+  B:00A0H.1       PUBLIC        door_close
+  C:0F09H         PUBLIC        _lcd_data
+  D:0099H         PUBLIC        SBUF
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  C:0DB4H         PUBLIC        _loading_display
+  C:0F1DH         PUBLIC        _lcd_cmd
+  D:0017H         PUBLIC        ch
+  C:0EAAH         PUBLIC        init_lcd
+  B:00A0H.0       PUBLIC        door_open
+  D:0018H         PUBLIC        id
+  D:008DH         PUBLIC        TH1
+  B:00A0H.7       PUBLIC        en
+  B:0088H.6       PUBLIC        TR1
+  B:00A0H.5       PUBLIC        rs
+  D:0024H         PUBLIC        i
+  B:00A0H.6       PUBLIC        rw
+  C:0D57H         PUBLIC        _display
+  -------         PROC          SERIAL_INIT
+  C:0F31H         LINE#         29
+  C:0F31H         LINE#         30
+  C:0F34H         LINE#         31
+  C:0F37H         LINE#         32
+  C:0F3AH         LINE#         33
+  C:0F3CH         LINE#         34
+  -------         ENDPROC       SERIAL_INIT
+  -------         PROC          _DELAY
+  D:0032H         SYMBOL        V
+  C:0E5AH         LINE#         40
+  C:0E62H         LINE#         41
+  C:0EA9H         LINE#         42
+  -------         ENDPROC       _DELAY
+  -------         PROC          MOTORDELAY
+  C:0EF5H         LINE#         44
+  C:0EF5H         LINE#         45
+  C:0F08H         LINE#         46
+  -------         ENDPROC       MOTORDELAY
+  -------         PROC          RXDATA
+  C:0F3DH         LINE#         52
+  C:0F3DH         LINE#         53
+  C:0F40H         LINE#         54
+  C:0F43H         LINE#         55
+  C:0F45H         LINE#         56
+  C:0F47H         LINE#         57
+  -------         ENDPROC       RXDATA
+  -------         PROC          _LCD_DATA
+  D:0007H         SYMBOL        ch
+  C:0F09H         LINE#         60
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/28/2021  13:34:47  PAGE 4
+
+
+  C:0F09H         LINE#         61
+  C:0F0BH         LINE#         62
+  C:0F0DH         LINE#         63
+  C:0F0FH         LINE#         64
+  C:0F1AH         LINE#         65
+  C:0F1CH         LINE#         66
+  -------         ENDPROC       _LCD_DATA
+  -------         PROC          _LCD_CMD
+  D:0007H         SYMBOL        ch
+  C:0F1DH         LINE#         68
+  C:0F1DH         LINE#         69
+  C:0F1FH         LINE#         70
+  C:0F21H         LINE#         71
+  C:0F23H         LINE#         72
+  C:0F2EH         LINE#         73
+  C:0F30H         LINE#         74
+  -------         ENDPROC       _LCD_CMD
+  -------         PROC          INIT_LCD
+  C:0EAAH         LINE#         83
+  C:0EAAH         LINE#         84
+  C:0EACH         LINE#         85
+  C:0EB1H         LINE#         86
+  C:0EB6H         LINE#         87
+  C:0EBBH         LINE#         88
+  C:0EC0H         LINE#         89
+  -------         ENDPROC       INIT_LCD
+  -------         PROC          _LOADING_DISPLAY
+  D:0001H         SYMBOL        str
+  C:0DB4H         LINE#         93
+  C:0DB4H         LINE#         94
+  C:0DBFH         LINE#         95
+  C:0DD1H         LINE#         96
+  C:0DE3H         LINE#         97
+  C:0DF5H         LINE#         98
+  -------         ENDPROC       _LOADING_DISPLAY
+  -------         PROC          MAIN
+  C:0CD6H         LINE#         101
+  C:0CD6H         LINE#         102
+  C:0CD9H         LINE#         103
+  C:0CDCH         LINE#         104
+  C:0CE5H         LINE#         105
+  C:0CE7H         LINE#         106
+  C:0CE9H         LINE#         107
+  C:0CF4H         LINE#         108
+  C:0CF4H         LINE#         109
+  C:0CFBH         LINE#         110
+  C:0D0AH         LINE#         111
+  C:0D0FH         LINE#         112
+  C:0D2AH         LINE#         114
+  C:0D37H         LINE#         115
+  C:0D40H         LINE#         117
+  C:0D49H         LINE#         118
+  -------         ENDPROC       MAIN
+  C:0D4DH         SYMBOL        L?0039
+  C:0D53H         SYMBOL        L?0040
+  -------         PROC          L?0038
+  -------         ENDPROC       L?0038
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/28/2021  13:34:47  PAGE 5
+
+
+  C:0D4DH         SYMBOL        L?0039
+  C:0D53H         SYMBOL        L?0040
+  -------         PROC          _DISPLAY
+  D:002AH         SYMBOL        str
+  D:002DH         SYMBOL        clearPreviousText
+  D:002FH         SYMBOL        delayBy
+  -------         DO            
+  D:0031H         SYMBOL        x
+  -------         ENDDO         
+  C:0D57H         LINE#         143
+  C:0D61H         LINE#         144
+  C:0D69H         LINE#         145
+  C:0D76H         LINE#         146
+  C:0D7BH         LINE#         147
+  C:0D86H         LINE#         148
+  C:0D8FH         LINE#         149
+  C:0D9AH         LINE#         150
+  C:0DADH         LINE#         156
+  C:0DB3H         LINE#         157
+  -------         ENDPROC       _DISPLAY
+  -------         PROC          _CHECK
+  D:0026H         SYMBOL        ID
+  -------         DO            
+  D:0029H         SYMBOL        i
+  -------         ENDDO         
+  C:0E07H         LINE#         167
+  C:0E0DH         LINE#         168
+  C:0E10H         LINE#         169
+  C:0E19H         LINE#         170
+  C:0E2EH         LINE#         171
+  C:0E4EH         LINE#         172
+  C:0E52H         LINE#         173
+  C:0E56H         LINE#         174
+  C:0E59H         LINE#         175
+  -------         ENDPROC       _CHECK
+  -------         ENDMOD        SOURCE
+
+  -------         MODULE        ?C?FPMUL
+  C:0800H         PUBLIC        ?C?FPMUL
+  -------         ENDMOD        ?C?FPMUL
+
+  -------         MODULE        ?C?FPCMP
+  C:0908H         PUBLIC        ?C?FPCMP
+  C:0906H         PUBLIC        ?C?FPCMP3
+  -------         ENDMOD        ?C?FPCMP
+
+  -------         MODULE        ?C?FCAST
+  C:0989H         PUBLIC        ?C?FCASTC
+  C:0984H         PUBLIC        ?C?FCASTI
+  C:097FH         PUBLIC        ?C?FCASTL
+  -------         ENDMOD        ?C?FCAST
+
+  -------         MODULE        ?C?CLDPTR
+  C:0A07H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        ?C?LNEG
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/28/2021  13:34:47  PAGE 6
+
+
+  C:0A20H         PUBLIC        ?C?LNEG
+  -------         ENDMOD        ?C?LNEG
+
+  -------         MODULE        ?C?STRCMP
+  C:0BACH         PUBLIC        ?C?STRCMP
+  -------         ENDMOD        ?C?STRCMP
+
+  -------         MODULE        STRLEN
+  C:0EE0H         PUBLIC        _STRLEN
+  -------         ENDMOD        STRLEN
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?MOTORDELAY?SOURCE
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 02DDH BYTE (35%) *
+******************************************************************************
+
+Program Size: data=55.0 xdata=0 code=1867
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

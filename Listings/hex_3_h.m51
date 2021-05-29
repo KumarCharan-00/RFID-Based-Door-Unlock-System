@@ -1,0 +1,220 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    05/28/2021  11:40:19  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\source.obj TO .\Objects\hex_3_h PRINT (.\Listings\hex_3_h.m51) RAMSIZE (256) CODE 
+>> (0X0000-0XFFFF)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\source.obj (SOURCE)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?IMUL)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\hex_3_h (SOURCE)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     000EH     UNIT         ?DT?SOURCE
+            DATA    0016H     0003H     UNIT         _DATA_GROUP_
+            IDATA   0019H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     0037H     UNIT         ?CO?SOURCE
+            CODE    08C3H     002FH     INBLOCK      ?PR?_DELAY?SOURCE
+            CODE    08F2H     002BH     UNIT         ?C?LIB_CODE
+            CODE    091DH     0029H     INBLOCK      ?PR?MAIN?SOURCE
+            CODE    0946H     0026H     INBLOCK      ?PR?_DISPLAY?SOURCE
+            CODE    096CH     001CH     INBLOCK      ?PR?CHECK?SOURCE
+            CODE    0988H     0014H     INBLOCK      ?PR?MOTORDELAY?SOURCE
+            CODE    099CH     0014H     INBLOCK      ?PR?INIT_LCD?SOURCE
+            CODE    09B0H     000CH     INBLOCK      ?PR?SERIAL_INIT?SOURCE
+            CODE    09BCH     000AH     INBLOCK      ?PR?_LCD_DATA?SOURCE
+            CODE    09C6H     000AH     INBLOCK      ?PR?_LCD_CMD?SOURCE
+            CODE    09D0H     0005H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\hex_3_h (SOURCE)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?SOURCE
+  +--> ?C_INITSEG
+
+?PR?MAIN?SOURCE                -----    -----
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/28/2021  11:40:19  PAGE 2
+
+
+  +--> ?PR?INIT_LCD?SOURCE
+  +--> ?PR?SERIAL_INIT?SOURCE
+  +--> ?CO?SOURCE
+  +--> ?PR?_DISPLAY?SOURCE
+  +--> ?PR?MOTORDELAY?SOURCE
+  +--> ?PR?CHECK?SOURCE
+
+?PR?INIT_LCD?SOURCE            -----    -----
+  +--> ?PR?_LCD_CMD?SOURCE
+
+?PR?_LCD_CMD?SOURCE            -----    -----
+  +--> ?PR?_DELAY?SOURCE
+
+?PR?_DISPLAY?SOURCE            0016H    0003H
+  +--> ?PR?INIT_LCD?SOURCE
+  +--> ?PR?_LCD_DATA?SOURCE
+
+?PR?_LCD_DATA?SOURCE           -----    -----
+  +--> ?PR?_DELAY?SOURCE
+
+?PR?CHECK?SOURCE               -----    -----
+  +--> ?CO?SOURCE
+  +--> ?PR?_DISPLAY?SOURCE
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\hex_3_h (SOURCE)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        SOURCE
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:096CH         PUBLIC        check
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  C:08CAH         PUBLIC        _delay
+  C:09B0H         PUBLIC        serial_init
+  C:091DH         PUBLIC        main
+  D:0008H         PUBLIC        rfid
+  C:0988H         PUBLIC        motorDelay
+  C:09BCH         PUBLIC        _lcd_data
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  C:09C6H         PUBLIC        _lcd_cmd
+  C:099CH         PUBLIC        init_lcd
+  D:008DH         PUBLIC        TH1
+  B:00A0H.7       PUBLIC        en
+  B:0088H.6       PUBLIC        TR1
+  B:00A0H.5       PUBLIC        rs
+  D:0014H         PUBLIC        i
+  B:00A0H.6       PUBLIC        rw
+  C:0946H         PUBLIC        _display
+  -------         PROC          SERIAL_INIT
+  C:09B0H         LINE#         27
+  C:09B0H         LINE#         28
+  C:09B3H         LINE#         29
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/28/2021  11:40:19  PAGE 3
+
+
+  C:09B6H         LINE#         30
+  C:09B9H         LINE#         31
+  C:09BBH         LINE#         32
+  -------         ENDPROC       SERIAL_INIT
+  -------         PROC          L?0025
+  -------         ENDPROC       L?0025
+  -------         PROC          _DELAY
+  D:0002H         SYMBOL        V
+  C:08CAH         LINE#         38
+  C:08CEH         LINE#         39
+  C:08F1H         LINE#         40
+  -------         ENDPROC       _DELAY
+  -------         PROC          MOTORDELAY
+  C:0988H         LINE#         42
+  C:0988H         LINE#         43
+  C:099BH         LINE#         44
+  -------         ENDPROC       MOTORDELAY
+  -------         PROC          _LCD_DATA
+  D:0007H         SYMBOL        ch
+  C:09BCH         LINE#         50
+  C:09BCH         LINE#         51
+  C:09BEH         LINE#         52
+  C:09C0H         LINE#         53
+  C:09C0H         LINE#         54
+  C:09C0H         LINE#         55
+  C:09C3H         LINE#         56
+  C:09C5H         LINE#         57
+  -------         ENDPROC       _LCD_DATA
+  -------         PROC          _LCD_CMD
+  D:0007H         SYMBOL        ch
+  C:09C6H         LINE#         59
+  C:09C6H         LINE#         60
+  C:09C8H         LINE#         61
+  C:09CAH         LINE#         62
+  C:09CAH         LINE#         63
+  C:09CAH         LINE#         64
+  C:09CDH         LINE#         65
+  C:09CFH         LINE#         66
+  -------         ENDPROC       _LCD_CMD
+  -------         PROC          INIT_LCD
+  C:099CH         LINE#         75
+  C:099CH         LINE#         76
+  C:09A1H         LINE#         77
+  C:09A6H         LINE#         78
+  C:09ABH         LINE#         79
+  -------         ENDPROC       INIT_LCD
+  -------         PROC          _DISPLAY
+  D:0016H         SYMBOL        ch
+  C:0946H         LINE#         84
+  C:094CH         LINE#         89
+  C:094FH         LINE#         90
+  C:095BH         LINE#         91
+  C:095EH         LINE#         92
+  C:0969H         LINE#         93
+  C:096BH         LINE#         99
+  -------         ENDPROC       _DISPLAY
+  -------         PROC          MAIN
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/28/2021  11:40:19  PAGE 4
+
+
+  C:091DH         LINE#         101
+  C:091DH         LINE#         102
+  C:0920H         LINE#         103
+  C:0923H         LINE#         104
+  C:092CH         LINE#         107
+  C:0935H         LINE#         108
+  C:0938H         LINE#         109
+  C:0938H         LINE#         110
+  C:0941H         LINE#         116
+  C:0944H         LINE#         117
+  -------         ENDPROC       MAIN
+  -------         PROC          CHECK
+  C:096CH         LINE#         142
+  C:096CH         LINE#         143
+  C:0976H         LINE#         144
+  C:097CH         LINE#         145
+  C:097EH         LINE#         146
+  C:0987H         LINE#         147
+  C:0987H         LINE#         148
+  -------         ENDPROC       CHECK
+  -------         ENDMOD        SOURCE
+
+  -------         MODULE        ?C?CLDPTR
+  C:08F2H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        ?C?IMUL
+  C:090BH         PUBLIC        ?C?IMUL
+  -------         ENDMOD        ?C?IMUL
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 011DH BYTE (13%) *
+******************************************************************************
+
+Program Size: data=26.0 xdata=0 code=472
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
