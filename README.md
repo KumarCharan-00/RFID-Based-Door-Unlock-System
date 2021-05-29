@@ -24,7 +24,7 @@ If you did not make any changes to the files then you can directly run the simul
 ## Basic problems
   1. Once you close the virtual terminal with close button(`X`). It might open again in the next time so stop the exceution of simulation rather than clsing virtual terminal, in any case if the terminal is not opening You can try to change the project name and re-open the project.
   2. When passing characters to the virtual terminal make sure that you are not pressing any other key because even shift, backspace, ctrl, cmd, option are considered as characters and passed to microcontroller.
-  3. If you cannot see the characters typed in virtual terminal, then right-click on virtual terminal and check whether `echo typed characters` is enables or not if not enable it.
+  3. If you cannot see the characters typed in virtual terminal, then right-click on virtual terminal and check whether `echo typed characters` is enabled if not enable it.
   4. Make sure that Virtual terminal box connected to a power source, if the motor is not working.
   
 .
