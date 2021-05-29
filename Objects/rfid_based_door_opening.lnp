@@ -1,0 +1,4 @@
+".\Objects\source.obj" 
+TO ".\Objects\rfid_based_door_opening" 
+PRINT(".\Listings\rfid_based_door_opening.m51") RAMSIZE(256) 
+CODE( 0X0000-0XFFFF )
